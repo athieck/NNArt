@@ -11,13 +11,13 @@ from __future__ import absolute_import
 
 import warnings
 
-from ..models import Model
-from ..layers import Flatten, Dense, Input
-from ..layers import Convolution2D, MaxPooling2D
-from ..utils.layer_utils import convert_all_kernels_in_model
-from ..utils.data_utils import get_file
-from .. import backend as K
-from .imagenet_utils import decode_predictions, preprocess_input
+from keras.models import Model
+from keras.layers import Flatten, Dense, Input
+from keras.layers import Convolution2D, MaxPooling2D, AveragePooling2D
+from keras.utils.layer_utils import convert_all_kernels_in_model
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras.applications.imagenet_utils import decode_predictions, preprocess_input
 
 
 TH_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_th_dim_ordering_th_kernels.h5'

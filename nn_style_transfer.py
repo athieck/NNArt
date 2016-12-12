@@ -1,11 +1,11 @@
 '''Neural style transfer with Keras.
 Run the script with:
 ```
-python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_reference.jpg prefix_for_results
+python nn_style_transfer.py path_to_your_base_image.jpg path_to_your_reference.jpg prefix_for_results
 ```
 e.g.:
 ```
-python neural_style_transfer.py img/tuebingen.jpg img/starry_night.jpg results/my_result
+python nn_style_transfer.py content/tubingen2.jpg style/seated-nude2.jpg results/result
 ```
 It is preferable to run this script on GPU, for speed.
 Example result: https://twitter.com/fchollet/status/686631033085677568
@@ -40,7 +40,7 @@ from scipy.optimize import fmin_l_bfgs_b
 import time
 import argparse
 
-from keras.applications import vgg19
+import vgg19
 from keras import backend as K
 
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')

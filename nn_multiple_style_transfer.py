@@ -1,18 +1,18 @@
 '''Neural style transfer with Keras.
 Run the script with:
 ```
-python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_reference.jpg prefix_for_results
+python nn_multiple_style_transfer.py --content path_to_your_base_image.jpg --style path_to_your_reference0.jpg path_to_your_reference1.jpg --dir_prefix prefix_for_results
 ```
 e.g.:
 ```
-python neural_style_transfer.py img/tuebingen.jpg img/starry_night.jpg results/my_result
+python nn_multiple_style_transfer.py --content content/tubingen2.jpg --style style/starry_night.jpg style/seated-nude2.jpg --dir_prefix results/result
 ```
 It is preferable to run this script on GPU, for speed.
 Example result: https://twitter.com/fchollet/status/686631033085677568
 # Details
 Style transfer consists in generating an image
 with the same "content" as a base image, but with the
-"style" of a different picture (typically artistic).
+"style" of different pictures (typically artistic).
 This is achieved through the optimization of a loss function
 that has 3 components: "style loss", "content loss",
 and "total variation loss":
@@ -40,7 +40,7 @@ from scipy.optimize import fmin_l_bfgs_b
 import time
 import argparse
 
-from keras.applications import vgg19
+import vgg19
 from keras import backend as K
 
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
